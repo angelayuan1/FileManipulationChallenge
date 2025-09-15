@@ -31,7 +31,21 @@ public class FileHandlingActivity {
             e.printStackTrace();
         }
         // d. Read and display file contents
-        
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file1))) {
+            System.out.println(bufferedReader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file2))) {
+            System.out.println(bufferedReader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file3))) {
+            System.out.println(bufferedReader.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // e. Create backup directory
         
         // f. Copy contents to backup file
