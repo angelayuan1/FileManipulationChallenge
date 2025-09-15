@@ -15,7 +15,21 @@ public class FileHandlingActivity {
         File file3 = new File("JavaFileSystem/log.txt");
         file3.createNewFile();
         // c. Write messages to files
-        
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file1))) {
+            bufferedWriter.write("Notes message");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file2))) {
+            bufferedWriter.write("Data message");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file3))) {
+            bufferedWriter.write("Log message");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         // d. Read and display file contents
         
         // e. Create backup directory
