@@ -47,7 +47,8 @@ public class FileHandlingActivity {
             e.printStackTrace();
         }
         // e. Create backup directory
-        
+        File dir2 = new File("JavaFileSystem/Backup");
+        dir2.mkdir();
         // f. Copy contents to backup file
         
         // g. List all files in both directories
