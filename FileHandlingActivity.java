@@ -50,7 +50,30 @@ public class FileHandlingActivity {
         File dir2 = new File("JavaFileSystem/Backup");
         dir2.mkdir();
         // f. Copy contents to backup file
-        
+        File file4 = new File("JavaFileSystem/Backup/backup.txt");
+        try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(file4))) {
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file1))) {
+                String s;
+                while ((s = bufferedReader.readLine()) != null) {
+                    bufferedWriter.write(s);
+                    bufferedWriter.newLine();
+                }
+            }
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file2))) {
+                String s;
+                while ((s = bufferedReader.readLine()) != null) {
+                    bufferedWriter.write(s);
+                    bufferedWriter.newLine();
+                }
+            }
+            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(file3))) {
+                String s;
+                while ((s = bufferedReader.readLine()) != null) {
+                    bufferedWriter.write(s);
+                    bufferedWriter.newLine();
+                }
+            }
+        }
         // g. List all files in both directories
     }
 }
