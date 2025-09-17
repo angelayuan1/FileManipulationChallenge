@@ -77,5 +77,23 @@ public class FileHandlingActivity {
         // g. List all files in both directories
         for (File f : dir.listFiles()) System.out.println(f.getName());
         for (File f : dir2.listFiles()) System.out.println(f.getName());
+
+        // Activity 3
+        debugFileOperation();
+    }
+
+    public static void debugFileOperation() {
+        try {
+            // Creating a file with an invalid name (forward slash is invalid for file names on many OS)
+            File file = new File("fileName.txt");
+            
+            // Attempting to write to the invalid file
+            FileWriter writer = new FileWriter(file); // the FileNotFoundException is thrown because there is a forward slash before the name, which is invalid since it means trying to go into the root folder, which is read-only, so the program can't write anything there, making it throw an error.
+            writer.write("Will this fail?");
+            writer.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred: " + e.getMessage());
+            e.printStackTrace(); 
+        }
     }
 }
