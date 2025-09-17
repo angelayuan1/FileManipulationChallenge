@@ -75,5 +75,7 @@ public class FileHandlingActivity {
             }
         }
         // g. List all files in both directories
+        for (File f : dir.listFiles()) System.out.println(f.getName());
+        for (File f : dir2.listFiles()) System.out.println(f.getName());
     }
 }
